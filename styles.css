@@ -1,0 +1,192 @@
+/* ==========================================================================
+   SKB-Downloader Branding Design Tokens & Hero Layout
+   Theme Scheme: Charcoal (#111827) and Copper (#D97706)
+   ========================================================================== */
+
+:root {
+  /* Brand Palettes */
+  --color-charcoal-dark: #0a0a0f;
+  --color-charcoal: #111827;
+  --color-charcoal-light: #1f2937;
+  --color-copper: #d97706;
+  --color-copper-glow: rgba(217, 119, 6, 0.15);
+  --color-copper-bright: #f59e0b;
+  
+  /* Interface Grayscale */
+  --color-white: #ffffff;
+  --color-text-base: #f9fafb;
+  --color-text-muted: #9ca3af;
+  
+  /* Sizing Scales */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --max-width-container: 1200px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Base Document Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-charcoal-dark);
+  color: var(--color-text-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/* Reusable Container Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width-container);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+/* ==========================================================================
+   Hero Section Component - Mobile-First Grid / Flex Design Layout
+   ========================================================================== */
+.hero-wrapper {
+  background: radial-gradient(circle at top right, var(--color-copper-glow), transparent 60%), var(--color-charcoal);
+  border-bottom: 1px solid rgba(217, 119, 6, 0.2);
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.hero-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-tagline {
+  color: var(--color-copper-bright);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-white);
+  margin-bottom: 16px;
+}
+
+.hero-title span {
+  color: var(--color-copper);
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+/* Accessible Interactive Actions */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--color-copper);
+  color: var(--color-white);
+  border: 1px solid var(--color-copper);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--color-copper-bright);
+  border-color: var(--color-copper-bright);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-base);
+  border: 1px solid var(--color-text-muted);
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--color-white);
+}
+/* Visual Placeholder Slot Component */
+.hero-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-frame {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-charcoal-light);
+  border: 2px dashed rgba(217, 119, 6, 0.3);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-muted);
+  padding: 20px;
+  text-align: center;
+}
+
+.media-frame svg {
+  color: var(--color-copper);
+  margin-bottom: 12px;
+}
+/* Accessible Keyboard Navigation Enhancements */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--color-copper-bright);
+  outline-offset: 4px;
+}
+/* ==========================================================================
+   Responsive Viewport Breaks (Tablet & Desktop Overrides)
+   ========================================================================== */@media (min-width: 768px) {
+  .hero-wrapper {
+    padding: 80px 0;
+  }
+  
+  .hero-layout {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .hero-content, .hero-media {
+    flex: 1;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+  }
+}
